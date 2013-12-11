@@ -35,6 +35,11 @@ CPM_InitModule(${CPM_MODULE_NAME})
 # Library setup
 #-----------------------------------------------------------------------
 
+# Since we are building a static library, we need to define GLEW_STATIC
+# <url:http://glew.sourceforge.net/install.html#^define the GLEW_STATIC>
+CPM_ExportAdditionalDefinition("-DGLEW_STATIC")
+add_definitions(-DGLEW_STATIC)
+
 # Export GLEW upwards.
 set(GLEW_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/glew/include")
 CPM_ExportAdditionalIncludeDir(${GLEW_INCLUDE_DIR})
